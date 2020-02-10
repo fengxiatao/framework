@@ -1,0 +1,15 @@
+spring:
+  application:
+    name: storage
+  profiles:
+    active: dev
+    label: master
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: repo-config
+      fail-fast: false
+      name: ${spring.application.name}
+      label: ${spring.profiles.label}
+      profile: ${spring.profiles.active}

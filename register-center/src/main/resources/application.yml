@@ -1,0 +1,22 @@
+# 端口
+server:
+  port: 8761
+
+# 应用名称
+spring:
+  application:
+    name: eurka-server
+
+eureka:
+  instance:
+    # 注册周期心跳 默认30s  这里改成5s  建议生成环境使用默认值30
+    lease-renewal-interval-in-seconds: 30
+    hostname: yhl-server
+  client:
+    # 是否向注册中心注册自己
+    registerWithEureka: false
+    # 是否向注册中心获取注册信息
+    fetchRegistry: false
+    serviceUrl:
+      # 注册中心地址
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/

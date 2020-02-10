@@ -1,0 +1,17 @@
+server:
+  port: 8764
+spring:
+  application:
+    name: gateway
+  profiles:
+    active: dev
+    label: master
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: repo-config
+      fail-fast: false
+      name: ${spring.application.name}
+      label: ${spring.profiles.label}
+      profile: ${spring.profiles.active}

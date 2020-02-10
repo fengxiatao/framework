@@ -1,0 +1,20 @@
+server:
+  port: 6671
+spring:
+  application:
+    name: repo-config
+  profiles:
+    active: master
+  cloud:
+    config:
+      server:
+        git:
+          uri: https://github.com/fengxiatao/repo-config
+          default-label: ${spring.profiles.active}
+eureka:
+  instance:
+    prefer-ip-address: true
+  client:
+    service-url:
+      defaultZone: http://yhl-server:8761/eureka/
+
